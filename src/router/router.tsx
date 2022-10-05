@@ -6,12 +6,9 @@ import SignUp from 'pages/SignUp';
 import MyPets from 'pages/MyPets';
 import Report from 'pages/Report';
 import Profile from 'pages/Profile';
+import LayoutMain from 'pages/Layout/LayoutMain';
 
 const router = createBrowserRouter([
-	{
-		path: routeMap.HOME.path,
-		element: <Home />,
-	},
 	{
 		path: routeMap.SIGN_UP.path,
 		element: <SignUp />,
@@ -21,16 +18,26 @@ const router = createBrowserRouter([
 		element: <SignIn />,
 	},
 	{
-		path: routeMap.MY_PETS.path,
-		element: <MyPets />,
-	},
-	{
-		path: routeMap.REPORT.path,
-		element: <Report />,
-	},
-	{
-		path: routeMap.PROFILE.path,
-		element: <Profile />,
+		path: routeMap.LAYOUT.path,
+		element: <LayoutMain />,
+		children: [
+			{
+				path: routeMap.HOME.path,
+				element: <Home />,
+			},
+			{
+				path: routeMap.MY_PETS.path,
+				element: <MyPets />,
+			},
+			{
+				path: routeMap.REPORT.path,
+				element: <Report />,
+			},
+			{
+				path: routeMap.PROFILE.path,
+				element: <Profile />,
+			},
+		],
 	},
 ]);
 

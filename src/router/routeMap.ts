@@ -1,34 +1,42 @@
-type Routes = 'HOME' | 'SIGN_UP' | 'SIGN_IN' | 'PROFILE' | 'MY_PETS' | 'REPORT';
-
-type Route = { path: string; getURL: (...args: string[]) => string };
+type Routes = 'HOME' | 'SIGN_UP' | 'SIGN_IN' | 'PROFILE' | 'MY_PETS' | 'REPORT' | 'LAYOUT';
+type Route = {
+	path: string; 
+	getURL: (...args: string[]) => string,
+	children?:[]
+};
 
 type RouteMap = Record<Routes, Route>;
 
 const routeMap: RouteMap = {
-	HOME: {
+	LAYOUT: {
 		path: '/',
 		getURL: () => '/',
+		children: [],
+	},
+	HOME:{
+		path: 'home',
+		getURL: () => '/home',
 	},
 	SIGN_UP: {
-		path: '/sign-up',
+		path: 'sign-up',
 		getURL: () => '/sign-up',
 	},
 	SIGN_IN: {
-		path: '/sign-in',
+		path: 'sign-in',
 		getURL: () => '/sign-in',
 	},
 	PROFILE: {
-		path: '/profile',
+		path: 'profile',
 		getURL: () => '/profile',
 	},
 	MY_PETS: {
-		path: '/my-pets',
+		path: 'my-pets',
 		getURL: () => '/my-pets',
 	},
 	REPORT: {
-		path: '/report',
+		path: 'report',
 		getURL: () => '/report',
-	},
+	}
 };
 
 export default routeMap;
