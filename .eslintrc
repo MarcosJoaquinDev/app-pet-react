@@ -18,6 +18,7 @@
     "rules": {
         "indent": ["error", "tab"],
         "quotes": ["error", "single"],
-        "semi": ["error", "always"]
+        "semi": ["error", "always"],
+        "react/react-in-jsx-scope": "off"
     }
 }
