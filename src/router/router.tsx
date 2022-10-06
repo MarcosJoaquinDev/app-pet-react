@@ -6,31 +6,43 @@ import SignUp from 'pages/SignUp';
 import MyPets from 'pages/MyPets';
 import Report from 'pages/Report';
 import Profile from 'pages/Profile';
+import MainLayout from 'components/Layout/MainLayout';
+import AuthLayout from 'components/Layout/AuthLayout';
 
 const router = createBrowserRouter([
 	{
-		path: routeMap.HOME.path,
-		element: <Home />,
+		element: <AuthLayout />,
+		children: [
+			{
+				path: routeMap.SIGN_UP.path,
+				element: <SignUp />,
+			},
+			{
+				path: routeMap.SIGN_IN.path,
+				element: <SignIn />,
+			},
+		],
 	},
 	{
-		path: routeMap.SIGN_UP.path,
-		element: <SignUp />,
-	},
-	{
-		path: routeMap.SIGN_IN.path,
-		element: <SignIn />,
-	},
-	{
-		path: routeMap.MY_PETS.path,
-		element: <MyPets />,
-	},
-	{
-		path: routeMap.REPORT.path,
-		element: <Report />,
-	},
-	{
-		path: routeMap.PROFILE.path,
-		element: <Profile />,
+		element: <MainLayout />,
+		children: [
+			{
+				path: routeMap.HOME.path,
+				element: <Home />,
+			},
+			{
+				path: routeMap.MY_PETS.path,
+				element: <MyPets />,
+			},
+			{
+				path: routeMap.REPORT.path,
+				element: <Report />,
+			},
+			{
+				path: routeMap.PROFILE.path,
+				element: <Profile />,
+			},
+		],
 	},
 ]);
 
