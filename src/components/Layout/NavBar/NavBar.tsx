@@ -6,8 +6,20 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import { routeMap } from 'router';
 import styles from './NavBar.styles';
-
-const navItems = ['Mis datos', 'Mis Mascotas', 'Reportar mascota'];
+const items = [
+	{
+		title: 'Mis datos',
+		path: routeMap.PROFILE.path,
+	},
+	{
+		title: 'Mis Mascotas',
+		path: routeMap.MY_PETS.path,
+	},
+	{
+		title: 'Reportar mascota',
+		path: routeMap.REPORT.path,
+	},
+];
 
 const NavBar: React.FC = () => (
 	<AppBar component="nav">
@@ -23,9 +35,14 @@ const NavBar: React.FC = () => (
 				</Button>
 			</Box>
 			<Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-				{navItems.map((item) => (
-					<Button key={item} sx={{ color: '#fff' }}>
-						{item}
+				{items.map((item) => (
+					<Button
+						key={item.title}
+						component={Link}
+						to={item.path}
+						sx={{ color: '#fff' }}
+					>
+						{item.title}
 					</Button>
 				))}
 			</Box>

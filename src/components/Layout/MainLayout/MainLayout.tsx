@@ -6,6 +6,7 @@ import NavBar from 'components/Layout/NavBar';
 const MainLayout: React.FC = () => (
 	<>
 		<NavBar />
+		<br />
 		<Box sx={{ pt: 6 }}>
 			<Outlet />
 		</Box>
